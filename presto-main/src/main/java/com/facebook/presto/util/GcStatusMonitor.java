@@ -36,8 +36,10 @@ import javax.management.openmbean.CompositeData;
 
 import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.function.Function;
 
 import static com.facebook.presto.util.StringTableUtils.getTableStrings;
@@ -110,8 +112,8 @@ public class GcStatusMonitor
         try {
             logActiveTasks();
         }
-        catch (Throwable throwable) {
-            log.error(throwable);
+        catch (Exception e) {
+            log.error("An error occurred while logging active tasks", e);
         }
     }
 

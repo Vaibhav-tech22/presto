@@ -46,6 +46,7 @@ import static com.facebook.presto.verifier.VerifierTestUtil.SCHEMA;
 import static com.facebook.presto.verifier.VerifierTestUtil.setupPresto;
 import static com.google.inject.Scopes.SINGLETON;
 import static java.lang.String.format;
+import static org.testng.Assert.assertEquals;
 
 @Test(singleThreaded = true)
 public class TestPrestoQuerySourceQuerySupplier
@@ -131,8 +132,8 @@ public class TestPrestoQuerySourceQuerySupplier
             try {
                 injector.getInstance(LifeCycleManager.class).stop();
             }
-            catch (Throwable t) {
-                log.error(t);
+            catch (Exception e) {
+                log.error("Failed to stop LifeCycleManager", e);
             }
         }
     }

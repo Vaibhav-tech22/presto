@@ -96,7 +96,7 @@ public class FinalizerService
             catch (InterruptedException e) {
                 return;
             }
-            catch (Throwable e) {
+            catch (Exception e) {
                 log.error(e, "Finalizer cleanup failed");
             }
         }

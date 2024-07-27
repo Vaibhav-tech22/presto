@@ -47,8 +47,8 @@ public final class ResumableTasks
         try {
             return task.process();
         }
-        catch (Throwable t) {
-            log.warn(t, "ResumableTask completed exceptionally");
+        catch (Exception e) {
+            log.warn(e, "ResumableTask completed exceptionally");
             return ResumableTaskStatus.finished();
         }
     }

@@ -184,7 +184,7 @@ public class ElasticsearchClient
             }
             this.nodes.set(nodes);
         }
-        catch (Throwable e) {
+        catch (Exception e) {
             // Catch all exceptions here since throwing an exception from executor#scheduleWithFixedDelay method
             // suppresses all future scheduled invocations
             LOG.error(e, "Error refreshing nodes");

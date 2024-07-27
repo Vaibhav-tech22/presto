@@ -42,6 +42,8 @@ import com.facebook.presto.verifier.source.SnapshotQuerySupplier;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.Injector;
+
+import org.apache.hudi.com.esotericsoftware.minlog.Log;
 import org.testng.annotations.AfterClass;
 
 import java.util.HashMap;
@@ -110,11 +112,17 @@ public abstract class AbstractVerificationTest
 
     @AfterClass
     public void teardown()
-    {
-        try {
-            injector.getInstance(LifeCycleManager.class).stop();
-        }
-        catch (Throwable ignored) {
+    {   
+        if (injector!=null) {
+            try {
+                LifeCycleManager lifeCycleManager = injector.getInstance(LifeCycleManager.class);
+                if (lifeCycleManager != null) {
+                    lifeCycleManager.stop();
+                }
+            }
+            catch (Exception e) {
+                Log.error("Failed to stop LifeCycleManager", e);
+            }
         }
     }
 

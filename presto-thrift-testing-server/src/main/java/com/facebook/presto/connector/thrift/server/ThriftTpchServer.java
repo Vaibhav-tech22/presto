@@ -48,8 +48,8 @@ public final class ThriftTpchServer
             start(ImmutableList.of());
             log.info("======== SERVER STARTED ========");
         }
-        catch (Throwable t) {
-            log.error(t);
+        catch (Exception e) {
+            log.error(e);
             System.exit(1);
         }
     }

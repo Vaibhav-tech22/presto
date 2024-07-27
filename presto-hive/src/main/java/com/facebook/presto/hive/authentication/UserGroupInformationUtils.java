@@ -28,7 +28,7 @@ public final class UserGroupInformationUtils
             try {
                 return new ResultOrException<>(action.run(), null);
             }
-            catch (Throwable e) {
+            catch (Exception e) {
                 return new ResultOrException<>(null, e);
             }
         }).get();

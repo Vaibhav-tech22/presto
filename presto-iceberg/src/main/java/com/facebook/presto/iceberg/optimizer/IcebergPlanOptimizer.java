@@ -388,8 +388,8 @@ public class IcebergPlanOptimizer
         try {
             return Objects.equals(firstTransformed, secondTransformed);
         }
-        catch (Throwable throwable) {
-            throw new RuntimeException(throwable);
+        catch (Exception exception) {
+            throw new RuntimeException(exception);
         }
     }
 }

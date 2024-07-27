@@ -42,7 +42,7 @@ public class ClickHouseSqlExecutor
         try {
             queryRunner.execute(session, sql);
         }
-        catch (Throwable e) {
+        catch (Exception e) {
             throw new RuntimeException("Error executing sql:\n" + sql, e);
         }
     }

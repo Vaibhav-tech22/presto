@@ -167,7 +167,7 @@ public class NativeExecutionProcess
         try {
             getServerInfoWithRetry().get();
         }
-        catch (Throwable t) {
+        catch (Exception t) {
             close();
             // If the native process launch failed, it usually indicates the current host machine is overloaded, we need to throw a fatal error (PrestoSparkFatalException is a
             // subclass of fatal error VirtualMachineError)to let Spark shutdown current executor and fail over to another one (Here is the definition of scala fatal error Spark

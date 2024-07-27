@@ -105,8 +105,8 @@ public class SplitSourceFactory
         try {
             source.close();
         }
-        catch (Throwable t) {
-            log.warn(t, "Error closing split source");
+        catch (Exception e) {
+            log.warn(e, "Error closing split source");
         }
     }
 

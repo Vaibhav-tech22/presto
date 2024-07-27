@@ -142,8 +142,8 @@ public class HttpNativeExecutionTaskResultFetcher
             PageBufferClient.PagesResponse pagesResponse = getFutureValue(workerClient.getResults(token, MAX_RESPONSE_SIZE));
             onSuccess(pagesResponse);
         }
-        catch (Throwable t) {
-            onFailure(t);
+        catch (Exception e) {
+            onFailure(e);
         }
     }
 

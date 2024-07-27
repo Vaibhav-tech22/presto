@@ -236,7 +236,7 @@ abstract class AbstractConnectionProperty<T>
             try {
                 return (QueryInterceptor) Class.forName(interceptor).getDeclaredConstructor().newInstance();
             }
-            catch (Throwable e) {
+            catch (Exception e) {
                 throw new IllegalArgumentException(format("Could not load QueryInterceptor classes from %s", interceptor), e);
             }
         }

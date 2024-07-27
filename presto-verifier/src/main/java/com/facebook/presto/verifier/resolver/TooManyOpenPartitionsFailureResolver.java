@@ -111,8 +111,8 @@ public class TooManyOpenPartitionsFailureResolver
                         }
                         return Optional.empty();
                     }
-                    catch (Throwable t) {
-                        log.warn(t, "Exception when resolving HIVE_TOO_MANY_OPEN_PARTITIONS");
+                    catch (Exception E) {
+                        log.warn(E, "Exception when resolving HIVE_TOO_MANY_OPEN_PARTITIONS");
                         return Optional.empty();
                     }
                 });

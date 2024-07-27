@@ -31,7 +31,7 @@ public class PrestoSqlExecutor
         try {
             queryRunner.execute(queryRunner.getDefaultSession(), sql);
         }
-        catch (Throwable e) {
+        catch (Exception e) {
             throw new RuntimeException("Error executing sql:\n" + sql, e);
         }
     }

@@ -49,7 +49,7 @@ public final class KeyReader
         try {
             return isatty(STDIN_FILENO) == 1;
         }
-        catch (Throwable e) {
+        catch (Exception e) {
             return false;
         }
     }

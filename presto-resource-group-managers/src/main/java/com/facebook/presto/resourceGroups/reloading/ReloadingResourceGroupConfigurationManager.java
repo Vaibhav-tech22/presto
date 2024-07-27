@@ -215,7 +215,7 @@ public class ReloadingResourceGroupConfigurationManager
 
             lastRefresh.set(System.nanoTime());
         }
-        catch (Throwable e) {
+        catch (Exception e) {
             refreshFailures.update(1);
             log.error(e, "Error loading configuration from source");
             if (lastRefresh.get() != 0) {

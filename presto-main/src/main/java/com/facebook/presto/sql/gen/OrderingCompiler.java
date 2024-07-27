@@ -108,7 +108,7 @@ public class OrderingCompiler
             Class<? extends PagesIndexComparator> pagesHashStrategyClass = compilePagesIndexComparator(sortTypes, sortChannels, sortOrders);
             comparator = pagesHashStrategyClass.getConstructor().newInstance();
         }
-        catch (Throwable e) {
+        catch (Exception e) {
             log.error(e, "Error compiling comparator for channels %s with order %s", sortChannels, sortOrders);
             comparator = new SimplePagesIndexComparator(sortTypes, sortChannels, sortOrders);
         }
@@ -248,8 +248,8 @@ public class OrderingCompiler
             Class<? extends PageWithPositionComparator> pageWithPositionsComparatorClass = generatePageWithPositionComparatorClass(types, sortChannels, sortOrders);
             comparator = pageWithPositionsComparatorClass.getConstructor().newInstance();
         }
-        catch (Throwable t) {
-            log.error(t, "Error compiling comparator for channels %s with order %s", sortChannels, sortChannels);
+        catch (Exception e) {
+            log.error(e, "Error compiling comparator for channels %s with order %s", sortChannels, sortChannels);
             comparator = new SimplePageWithPositionComparator(types, sortChannels, sortOrders);
         }
         return comparator;

@@ -196,8 +196,8 @@ public class ConnectorManager
             try (ThreadContextClassLoader ignored = new ThreadContextClassLoader(connector.getClass().getClassLoader())) {
                 connector.shutdown();
             }
-            catch (Throwable t) {
-                log.error(t, "Error shutting down connector: %s", entry.getKey());
+            catch (Exception e) {
+                log.error(e, "Error shutting down connector: %s", entry.getKey());
             }
         }
     }

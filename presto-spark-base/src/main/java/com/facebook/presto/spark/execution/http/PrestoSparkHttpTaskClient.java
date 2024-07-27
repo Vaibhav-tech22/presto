@@ -167,8 +167,8 @@ public class PrestoSparkHttpTaskClient
                     errorTracker.requestFailed(failure);
                     scheduleGetResultsRequest(request, errorTracker, result);
                 }
-                catch (Throwable t) {
-                    result.setException(t);
+                catch (Exception e) {
+                    result.setException(e);
                 }
             }
         }, executor);
@@ -329,8 +329,8 @@ public class PrestoSparkHttpTaskClient
                     errorTracker.requestFailed(failure);
                     scheduleRequest(request, responseHandler, errorTracker, result);
                 }
-                catch (Throwable t) {
-                    result.setException(t);
+                catch (Exception e) {
+                    result.setException(e);
                 }
             }
 

@@ -58,7 +58,7 @@ public class DataVerificationUtil
             try {
                 runAndConsume(() -> queryAction.execute(teardownQuery, forTeardown(bundle.get().getCluster())), queryStatsConsumer);
             }
-            catch (Throwable t) {
+            catch (Exception e) {
                 log.warn("Failed to teardown %s: %s", bundle.get().getCluster().name().toLowerCase(ENGLISH), formatSql(teardownQuery, Optional.empty()));
             }
         }

@@ -305,7 +305,7 @@ public abstract class AbstractVerification<B extends QueryBundle, R extends Matc
                     determinismAnalysisDetails,
                     Optional.empty()));
         }
-        catch (Throwable t) {
+        catch (Exception t) {
             if (exceptionClassifier.shouldResubmit(t)
                     && verificationContext.getResubmissionCount() < verificationResubmissionLimit) {
                 LOG.info("Error during verification: %s", t);

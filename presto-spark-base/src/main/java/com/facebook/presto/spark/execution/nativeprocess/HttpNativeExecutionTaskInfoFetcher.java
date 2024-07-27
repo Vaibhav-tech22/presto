@@ -81,8 +81,8 @@ public class HttpNativeExecutionTaskInfoFetcher
             TaskInfo result = workerClient.getTaskInfo();
             onSuccess(result);
         }
-        catch (Throwable t) {
-            onFailure(t);
+        catch (Exception e) {
+            onFailure(e);
         }
     }
 

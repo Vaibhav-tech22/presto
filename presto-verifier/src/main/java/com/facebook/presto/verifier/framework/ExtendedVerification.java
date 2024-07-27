@@ -109,7 +109,7 @@ public class ExtendedVerification
             controlPartitionColumns = getColumns(getHelperAction(), typeManager, formPartitionTableName(control.getObjectName()));
             testPartitionColumns = getColumns(getHelperAction(), typeManager, formPartitionTableName(test.getObjectName()));
         }
-        catch (Throwable e) {
+        catch (Exception e) {
             return dataMatchResult;
         }
         List<Column> controlDataColumns = getDataColumn(controlColumns, ImmutableSet.copyOf(controlPartitionColumns));
@@ -204,7 +204,7 @@ public class ExtendedVerification
             controlBucketChecksum = runBucketChecksum(control, controlPartitionColumns, controlDataColumns, controlChecksumQueryContext, CONTROL_BUCKET_CHECKSUM);
             testBucketChecksum = runBucketChecksum(test, testPartitionColumns, testDataColumns, testChecksumQueryContext, TEST_BUCKET_CHECKSUM);
         }
-        catch (Throwable e) {
+        catch (Exception e) {
             return Optional.empty();
         }
         if (controlBucketChecksum.size() != testBucketChecksum.size()) {

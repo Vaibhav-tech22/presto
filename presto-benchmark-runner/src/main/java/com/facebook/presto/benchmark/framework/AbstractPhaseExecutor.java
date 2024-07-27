@@ -75,8 +75,8 @@ public abstract class AbstractPhaseExecutor<T extends PhaseSpecification>
         catch (QueryException e) {
             return buildEvent(benchmarkQuery, queryStats, Optional.of(e));
         }
-        catch (Throwable t) {
-            log.error(t);
+        catch (Exception e) {
+            log.error(e);
             return buildEvent(benchmarkQuery, queryStats, Optional.empty());
         }
     }
