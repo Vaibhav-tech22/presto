@@ -163,6 +163,10 @@ public final class QueryPreprocessor
                 throw new QueryPreprocessorException("Interrupted while preprocessing query");
             }
             catch (Throwable e) {
+                if (e instanceof Error) {
+                    // **Re-throw Errors to avoid masking serious problems**
+                    throw (Error) e;
+                }
                 throw new QueryPreprocessorException("Error preprocessing query: " + e.getMessage(), e);
             }
 
